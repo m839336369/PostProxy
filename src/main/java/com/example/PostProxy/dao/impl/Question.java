@@ -1,6 +1,6 @@
-package com.example.cureapi.dao.impl;
+package com.example.PostProxy.dao.impl;
 
-import com.example.cureapi.dao.IQuestion;
+import com.example.PostProxy.dao.IQuestion;
 
 import java.util.Set;
 

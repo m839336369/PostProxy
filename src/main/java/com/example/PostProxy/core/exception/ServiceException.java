@@ -1,4 +1,4 @@
-package com.example.cureapi.core.exception;
+package com.example.PostProxy.core.exception;
 
 /**
  * Service层异常

@@ -1,6 +1,6 @@
-package com.example.cureapi.core.util;
+package com.example.PostProxy.core.util;
 
-import com.example.cureapi.base.Result;
+import com.example.PostProxy.base.Result;
 
 /**
  * Result生成工具类

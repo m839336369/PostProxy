@@ -1,6 +1,6 @@
-package com.example.cureapi.core.system.dto;
+package com.example.PostProxy.core.system.dto;
 
-import com.example.cureapi.base.BaseDTO;
+import com.example.PostProxy.base.BaseDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**

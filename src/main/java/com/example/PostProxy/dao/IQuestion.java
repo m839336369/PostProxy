@@ -1,4 +1,4 @@
-package com.example.cureapi.dao;
+package com.example.PostProxy.dao;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;

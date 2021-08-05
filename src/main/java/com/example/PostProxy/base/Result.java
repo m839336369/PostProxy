@@ -1,4 +1,4 @@
-package com.example.cureapi.base;
+package com.example.PostProxy.base;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

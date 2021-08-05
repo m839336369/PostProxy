@@ -1,8 +1,8 @@
-package com.example.cureapi.base;
+package com.example.PostProxy.base;
 
 import com.fasterxml.jackson.annotation.*;
-import com.example.cureapi.core.constants.Constants;
-import com.example.cureapi.core.util.Dates;
+import com.example.PostProxy.core.constants.Constants;
+import com.example.PostProxy.core.util.Dates;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

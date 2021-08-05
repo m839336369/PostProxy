@@ -1,4 +1,4 @@
-package com.example.cureapi.core.util;
+package com.example.PostProxy.core.util;
 
 
 import org.apache.commons.lang3.StringUtils;

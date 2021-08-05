@@ -1,6 +1,6 @@
-package com.example.cureapi.core.constants;
+package com.example.PostProxy.core.constants;
 
-import com.example.cureapi.base.BaseEnum;
+import com.example.PostProxy.base.BaseEnum;
 
 import java.util.HashMap;
 import java.util.Map;
