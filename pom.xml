@@ -11,8 +11,8 @@
     </properties>
 
     <groupId>com.example</groupId>
-    <name>CureApi</name>
-    <artifactId>CureApi</artifactId>
+    <name>PostProxy</name>
+    <artifactId>PostProxy</artifactId>
     <description>Demo project for Spring Boot</description>
 
 
@@ -58,7 +58,7 @@
                     <archive>
                         <manifest>
                             <!--运行jar包时运行的主类，要求类全名-->
-                            <mainClass>com.example.PostProxy.CureApiApplication</mainClass>
+                            <mainClass>com.example.PostProxy.PostProxyApiApplication</mainClass>
                             <!-- 是否指定项目classpath下的依赖 -->
                             <addClasspath>true</addClasspath>
                             <!-- 指定依赖的时候声明前缀 -->
