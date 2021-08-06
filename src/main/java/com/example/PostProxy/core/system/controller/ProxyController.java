@@ -34,7 +34,9 @@ public class ProxyController extends BaseController {
     public String Post(HttpServletRequest request,@RequestBody String body){
         boolean flag = false;
         Map objects = Core.GsonJsonParser.parseMap(body);
-        String value = objects.get("token").toString();
+        Object token_obj = objects.get("token");
+        String value = "";
+        if(token_obj!=null)value = token_obj.toString();
         for (TokenPair token : Core.Config.getTokens()){
             if(value.equals(token.getKey())){
                 flag = true;
