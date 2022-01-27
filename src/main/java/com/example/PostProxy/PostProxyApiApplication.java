@@ -2,6 +2,7 @@ package com.example.PostProxy;
 
 import com.example.PostProxy.core.Core;
 import com.example.PostProxy.core.system.dto.Config;
+import com.example.PostProxy.core.system.dto.ResultProcess;
 import com.example.PostProxy.core.system.dto.Token;
 import com.example.PostProxy.core.util.ConfigHelper;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +16,8 @@ import java.util.HashMap;
 @ComponentScan(value = "com.example.PostProxy.core.system.controller")
 @SpringBootApplication
 public class PostProxyApiApplication {
-
+    // sudo fuser -k -n tcp 8080
+    // java -jar /usr/PostProxy/PostProxy-1.0.jar
     public static void main(String[] args) {
         String userDir = System.getProperty("user.dir");
         File file = new File(userDir+ "/ProxyConfig");
@@ -28,6 +30,10 @@ public class PostProxyApiApplication {
             config.getTokens().get("菜谱查询").getParams().put("key","白菜");
             config.getTokens().get("菜谱查询").getParams().put("p","1");
             config.getTokens().get("菜谱查询").getParams().put("n","1");
+            config.getTokens().put("json",new Token(new HashMap<>(),"http://127.0.0.1:8080/json"));
+            config.getTokens().get("json").getResultProcesses().add(new ResultProcess(ResultProcess.Operate.Ratio,"\"balance\":\"(\\d*)\"","0.5"));
+            config.getTokens().put("string",new Token(new HashMap<>(),"http://127.0.0.1:8080/string"));
+            config.getTokens().get("string").getResultProcesses().add(new ResultProcess(ResultProcess.Operate.Replace,"12","0.5"));
             config.getTokens().put("Api2",new Token(new HashMap<>(),"http://api2.ronsir.cn/v1/email/send"));
             config.getTokens().get("Api2").getParams().put("token","558ffa8177ac5748869c4cd1c93d57ab");
             ConfigHelper.Save(config);

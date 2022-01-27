@@ -2,8 +2,10 @@ package com.example.PostProxy.core.system.controller;
 
 import com.example.PostProxy.base.BaseController;
 import com.example.PostProxy.core.Core;
+import com.example.PostProxy.core.system.dto.ResultProcess;
 import com.example.PostProxy.core.system.dto.Token;
 import com.example.PostProxy.core.util.Http;
+import com.google.gson.JsonObject;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,20 @@ import java.util.Map;
 @RestController
 public class ProxyController extends BaseController {
 
+//    @PostMapping(value = "/json")
+//    public String JsonTest(HttpServletRequest request){
+//        JsonObject jsonObject = new JsonObject();
+//        jsonObject.addProperty("balance","123");
+//        jsonObject.addProperty("id","12312");
+//        jsonObject.addProperty("name","xiaoming");
+//        return Core.Gson.toJson(jsonObject);
+//    }
+//
+//    @PostMapping(value = "/string")
+//    public String StringTest(HttpServletRequest request){
+//        return "123";
+//    }
+
     @PostMapping(value = "/request")
     public String Post(HttpServletRequest request,@RequestBody String body){
         Map<String,Object> objects = Core.GsonJsonParser.parseMap(body);
@@ -32,7 +48,11 @@ public class ProxyController extends BaseController {
                     request_body.put(key,objects.get(key));
                 }
             }
-            return Http.Post(request,Core.Gson.toJson(request_body),token.getUrl());
+            String result = Http.Post(request,Core.Gson.toJson(request_body),token.getUrl());
+            for (ResultProcess process : token.getResultProcesses()){
+                result = process.process(result);
+            }
+            return result;
         }
         return "token有误，请传递正确token";
     }
@@ -56,7 +76,11 @@ public class ProxyController extends BaseController {
                         url.append("&").append(key).append("=").append(request.getParameter(key));
                     }
                 }
-                return Http.Get(request,url.toString());
+                String result = Http.Get(request,url.toString());
+                for (ResultProcess process : token.getResultProcesses()){
+                    result = process.process(result);
+                }
+                return result;
             }
         }
         return "token有误，请传递正确token";
