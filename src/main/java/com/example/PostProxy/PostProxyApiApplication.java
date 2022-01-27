@@ -17,7 +17,7 @@ import java.util.HashMap;
 @SpringBootApplication
 public class PostProxyApiApplication {
     // sudo fuser -k -n tcp 8080
-    // java -jar /usr/PostProxy/PostProxy-1.0.jar
+    // java -jar /usr/PostProxy/PostProxy.jar
     public static void main(String[] args) {
         String userDir = System.getProperty("user.dir");
         File file = new File(userDir+ "/ProxyConfig");

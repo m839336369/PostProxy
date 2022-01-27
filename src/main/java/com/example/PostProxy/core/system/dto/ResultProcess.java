@@ -29,8 +29,6 @@ public class ResultProcess {
             if(pattern == null)pattern = Pattern.compile(regex,Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(result);
             while (matcher.find()){
-                System.out.println(matcher.group(0));
-                System.out.println(matcher.group(1));
                 double num = Double.parseDouble(matcher.group(1)) * Double.parseDouble(value);
                 result = result.replace(matcher.group(0),matcher.group(0).replace(matcher.group(1),String.valueOf(num)));
             }

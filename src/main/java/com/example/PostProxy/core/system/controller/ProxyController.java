@@ -20,21 +20,6 @@ import java.util.Map;
  */
 @RestController
 public class ProxyController extends BaseController {
-
-//    @PostMapping(value = "/json")
-//    public String JsonTest(HttpServletRequest request){
-//        JsonObject jsonObject = new JsonObject();
-//        jsonObject.addProperty("balance","123");
-//        jsonObject.addProperty("id","12312");
-//        jsonObject.addProperty("name","xiaoming");
-//        return Core.Gson.toJson(jsonObject);
-//    }
-//
-//    @PostMapping(value = "/string")
-//    public String StringTest(HttpServletRequest request){
-//        return "123";
-//    }
-
     @PostMapping(value = "/request")
     public String Post(HttpServletRequest request,@RequestBody String body){
         Map<String,Object> objects = Core.GsonJsonParser.parseMap(body);

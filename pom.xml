@@ -13,7 +13,7 @@
     <groupId>com.example</groupId>
     <name>PostProxy</name>
     <artifactId>PostProxy</artifactId>
-    <description>Demo project for Spring Boot</description>
+    <description>Get/Post Proxy</description>
 
 
     <dependencies>
