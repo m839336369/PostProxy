@@ -19,9 +19,12 @@ public class Token implements Serializable {
     HashMap<String,String> params;
     @Expose
     ArrayList<ResultProcess> resultProcesses = new ArrayList<>();
+    @Expose
+    HashMap<String,String> headers;
 
-    public Token(HashMap<String, String> params,String url) {
+    public Token(HashMap<String, String> params,HashMap<String,String> headers,String url) {
         this.url = url;
         this.params = params;
+        this.headers = headers;
     }
 }
