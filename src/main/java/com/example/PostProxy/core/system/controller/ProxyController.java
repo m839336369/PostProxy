@@ -69,11 +69,17 @@ public class ProxyController extends BaseController {
                     url.append("?");
                 }
                 for(String key : token.getParams().keySet()){
-                    url.append("&").append(key).append("=").append(token.getParams().get(key));
+                    if(url.charAt(token.getUrl().length() -1) != '?'){
+                        url.append("&");
+                    }
+                    url.append(key).append("=").append(token.getParams().get(key));
                 }
                 for (String key : request.getParameterMap().keySet()){
+                    if(url.charAt(token.getUrl().length() -1) != '?'){
+                        url.append("&");
+                    }
                     if(!token.getParams().containsKey(key)){
-                        url.append("&").append(key).append("=").append(request.getParameter(key));
+                        url.append(key).append("=").append(request.getParameter(key));
                     }
                 }
                 builder.url(url.toString());

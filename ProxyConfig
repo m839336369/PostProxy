@@ -1,0 +1,34 @@
+!!com.example.PostProxy.core.system.dto.Config
+tokens:
+  Replace:
+    headers: {}
+    params: {}
+    resultProcesses:
+    - {operate: Replace, regex: '"描述价格": "(\d*)"', value: '"描述价格": "99999"'}
+    url: https://api.iyk0.com/sjzx/?msg=苹果12
+  AddTaskList:
+    headers: {apikey: sz202201118329xns}
+    params: {}
+    resultProcesses: []
+    url: http://qapi.shuzhikj.com/api/platform/add_tasklist
+  Api2:
+    headers: {}
+    params: {token: 558ffa8177ac5748869c4cd1c93d57ab}
+    resultProcesses: []
+    url: http://api2.ronsir.cn/v1/email/send
+  Ratio:
+    headers: {}
+    params: {}
+    resultProcesses:
+    - {operate: Ratio, regex: '"描述价格": "(\d*)"', value: '0.5'}
+    url: https://api.iyk0.com/sjzx/?msg=苹果12
+  菜谱查询:
+    headers: {}
+    params: {p: '1', key: 白菜, n: '1'}
+    resultProcesses: []
+    url: https://api.iyk0.com/shipu/
+  maiyou:
+    headers: {}
+    params: {apikey : 00330F2163454534968FFO4EF621ED4F}
+    resultProcesses: []
+    url: https://api.hotmailbox.me/mail/buy
