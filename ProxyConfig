@@ -29,6 +29,6 @@ tokens:
     url: https://api.iyk0.com/shipu/
   maiyou:
     headers: {}
-    params: {apikey : 00330F2163454534968FFO4EF621ED4F}
+    params: {apikey : 00330F2163454534968FF04EF621ED4F}
     resultProcesses: []
     url: https://api.hotmailbox.me/mail/buy

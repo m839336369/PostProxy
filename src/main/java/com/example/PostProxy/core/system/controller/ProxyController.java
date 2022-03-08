@@ -68,19 +68,19 @@ public class ProxyController extends BaseController {
                 if(!(token.getUrl().charAt(token.getUrl().length() -1) == '?')){
                     url.append("?");
                 }
-                for(String key : token.getParams().keySet()){
-                    if(url.charAt(token.getUrl().length() -1) != '?'){
-                        url.append("&");
-                    }
-                    url.append(key).append("=").append(token.getParams().get(key));
-                }
                 for (String key : request.getParameterMap().keySet()){
-                    if(url.charAt(token.getUrl().length() -1) != '?'){
+                    if(url.charAt(url.length() -1) != '?'){
                         url.append("&");
                     }
                     if(!token.getParams().containsKey(key)){
                         url.append(key).append("=").append(request.getParameter(key));
                     }
+                }
+                for(String key : token.getParams().keySet()){
+                    if(url.charAt(url.length() -1) != '?'){
+                        url.append("&");
+                    }
+                    url.append(key).append("=").append(token.getParams().get(key));
                 }
                 builder.url(url.toString());
                 for (Map.Entry<String,String> head : token.getHeaders().entrySet()){
